@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.gm.brunoriul.estoqueSAEP.api.controller;
+package br.gm.brunoriul.estoqueSAEP.service;
 
 /**
  *
  * @author digma
  */
-public class CategoriaController {
+public class RelatorioService {
     
 }
