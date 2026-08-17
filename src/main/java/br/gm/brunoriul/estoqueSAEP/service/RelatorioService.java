@@ -8,6 +8,7 @@ package br.gm.brunoriul.estoqueSAEP.service;
  *
  * @author digma
  */
+
 public class RelatorioService {
     
 }

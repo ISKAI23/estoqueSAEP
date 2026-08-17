@@ -7,6 +7,7 @@ package br.gm.brunoriul.estoqueSAEP.service;
 import br.gm.brunoriul.estoqueSAEP.entities.Produto;
 import br.gm.brunoriul.estoqueSAEP.repositories.ProdutoRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,12 @@ public class ProdutoService {
     public List<Produto> findAll() {
         
         List<Produto> result = produtoRepository.findAll();
+        return result;
+    }
+    
+    public Optional<Produto> findById(Long id_produto){
+        Optional<Produto> result = produtoRepository.findById(id_produto);
+        
         return result;
     }
 }

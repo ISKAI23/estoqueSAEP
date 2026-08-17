@@ -7,8 +7,10 @@ package br.gm.brunoriul.estoqueSAEP.api.controller;
 import br.gm.brunoriul.estoqueSAEP.entities.Produto;
 import br.gm.brunoriul.estoqueSAEP.service.ProdutoService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,4 +33,10 @@ public class ProdutoController {
         return result;
     }
     
+    
+    @GetMapping("/{id_produto}")
+    public Optional<Produto> findById(@PathVariable Long id_produto) {
+        Optional<Produto> result = produtoService.findById(id_produto);
+        return result;
+    }
 }

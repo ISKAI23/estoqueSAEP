@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.gm.brunoriul.estoqueSAEP.entities;
 
 import jakarta.persistence.Column;
@@ -16,7 +12,6 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
-import org.springframework.data.annotation.CreatedDate;
 
 /**
  *
@@ -36,11 +31,18 @@ public class Movimento {
     @Column(precision = 10, scale = 2)
     private BigDecimal qtd;
     
-    @CreatedDate
-    @Column(name="data_movto", updatable = false, nullable = false)
+    //@CreatedDate
+    @Column(name="data_movto")
     private LocalDateTime data_movto;
 
     public Movimento() {
+        this.data_movto = LocalDateTime.now();
+    }
+
+    public Movimento(Produto produto, BigDecimal qtd) {
+        this.produto = produto;
+        this.qtd = qtd;
+        this.data_movto = LocalDateTime.now();
     }
 
     public Long getId() {

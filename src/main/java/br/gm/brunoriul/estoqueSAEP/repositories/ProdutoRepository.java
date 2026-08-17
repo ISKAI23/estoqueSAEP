@@ -5,11 +5,16 @@
 package br.gm.brunoriul.estoqueSAEP.repositories;
 
 import br.gm.brunoriul.estoqueSAEP.entities.Produto;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author digma
  */
+
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
+    
+    
+    
 }
