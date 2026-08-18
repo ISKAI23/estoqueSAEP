@@ -31,7 +31,6 @@ public class Movimento {
     @Column(precision = 10, scale = 2)
     private BigDecimal qtd;
     
-    //@CreatedDate
     @Column(name="data_movto")
     private LocalDateTime data_movto;
 

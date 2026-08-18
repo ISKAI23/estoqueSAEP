@@ -4,9 +4,9 @@
  */
 package br.gm.brunoriul.estoqueSAEP.api.controller;
 
-import br.gm.brunoriul.estoqueSAEP.entities.Produto;
-import br.gm.brunoriul.estoqueSAEP.repositories.ProdutoRepository;
-import br.gm.brunoriul.estoqueSAEP.service.ProdutoService;
+import br.gm.brunoriul.estoqueSAEP.entities.Categoria;
+import br.gm.brunoriul.estoqueSAEP.repositories.CategoriaRepository;
+import br.gm.brunoriul.estoqueSAEP.service.CategoriaService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,29 +24,28 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/produto")
-public class ProdutoController {
+@RequestMapping("/categoria")
+public class CategoriaController {
+    @Autowired
+    private CategoriaService categoriaService;
     
     @Autowired
-    private ProdutoService produtoService;
-    
-    @Autowired
-    private ProdutoRepository produtoRepository;
+    private CategoriaRepository categoriaRepository;
     
     @GetMapping
-    public List<Produto> findAll() {
-        List<Produto> result = produtoService.findAll();
-        return result;
+    public List<Categoria> findAll() {
+        List<Categoria> result = categoriaService.findAll();
+        return result;  
     }
     
     
-    @GetMapping("/{id_produto}")
-    public ResponseEntity<Object> buscar(@PathVariable Long id_produto) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> buscar(@PathVariable Long id) {
         
-        Optional<Produto> produto = produtoService.findById(id_produto);
+        Optional<Categoria> categoria = categoriaService.findById(id);
         
-        if (produto.isPresent()){
-            return ResponseEntity.ok(produto.get());
+        if (categoria.isPresent()){
+            return ResponseEntity.ok(categoria.get());
         }
         else{
             return ResponseEntity.notFound().build();
@@ -54,8 +53,7 @@ public class ProdutoController {
     }
     
     @PostMapping("/adicionar")
-    public Produto adicionar(@RequestBody Produto produto){
-        return produtoRepository.save(produto);
+    public Categoria adicionar(@RequestBody Categoria categoria){
+        return categoriaRepository.save(categoria);
     }
-    
 }
