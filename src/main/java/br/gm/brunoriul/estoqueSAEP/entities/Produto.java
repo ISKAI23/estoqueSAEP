@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -33,9 +34,11 @@ public class Produto {
     @JoinColumn(name="id_categoria", nullable = false)
     private Categoria categoria;
         
+    @NotNull(message="Valor de saldo obrigatório!")
     @Column(precision = 10, scale = 2)
     private BigDecimal saldo;
     
+    @NotNull(message="Valor unitario do produto obrigatório")
     @Column(precision = 10, scale = 2)
     private BigDecimal valor_unitario;
 

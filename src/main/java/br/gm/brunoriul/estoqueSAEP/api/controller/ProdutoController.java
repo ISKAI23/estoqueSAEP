@@ -7,6 +7,7 @@ package br.gm.brunoriul.estoqueSAEP.api.controller;
 import br.gm.brunoriul.estoqueSAEP.entities.Produto;
 import br.gm.brunoriul.estoqueSAEP.repositories.ProdutoRepository;
 import br.gm.brunoriul.estoqueSAEP.service.ProdutoService;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,8 +55,8 @@ public class ProdutoController {
     }
     
     @PostMapping("/adicionar")
-    public Produto adicionar(@RequestBody Produto produto){
+    public Produto adicionar(@RequestBody @Valid Produto produto){
         return produtoRepository.save(produto);
-    }
+    }   
     
 }

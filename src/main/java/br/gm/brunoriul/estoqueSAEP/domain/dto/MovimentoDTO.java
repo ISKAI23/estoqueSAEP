@@ -13,7 +13,5 @@ public record MovimentoDTO (
        Long id_produto,
 
        @NotNull(message = "Quantidade do movimento não pode ser vazia!")
-       Double quantidade
-       
-       
+       Double quantidade  
 ) {}
