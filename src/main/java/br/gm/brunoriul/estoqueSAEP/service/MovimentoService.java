@@ -40,7 +40,7 @@ public class MovimentoService {
         p.atualizaSaldo(qtd);
 //        produtoRepository.save(p);
 
-        System.out.println("Bruno: Saldo atualizado: " + p.getSaldo());
+        System.out.println("Saldo atualizado: " + p.getSaldo());
         
         return movto;
         

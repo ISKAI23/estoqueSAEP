@@ -4,10 +4,13 @@
  */
 package br.gm.brunoriul.estoqueSAEP.service;
 
+import br.gm.brunoriul.estoqueSAEP.domain.dto.CategoriaValorTotalDTO;
+import br.gm.brunoriul.estoqueSAEP.domain.projections.CategoriaValorTotalProjection;
 import br.gm.brunoriul.estoqueSAEP.entities.Categoria;
 import br.gm.brunoriul.estoqueSAEP.repositories.CategoriaRepository;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +34,14 @@ public class CategoriaService {
         Optional<Categoria> result = categoriaRepository.findById(id_produto);
         
         return result;
+    }
+    
+    
+    public List<CategoriaValorTotalDTO> valorTotalPorCategoriaViaSqlNativo(){
+        
+        List<CategoriaValorTotalProjection> resultados = categoriaRepository.calcularValorTotalPorCategoriaViaSqlNativo();
+        
+        return resultados.stream().map(proj -> new CategoriaValorTotalDTO(proj.getCategoria(), proj.getValorTotal())).toList();
+        
     }
 }

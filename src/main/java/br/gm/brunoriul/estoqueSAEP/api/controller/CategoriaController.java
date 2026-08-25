@@ -4,6 +4,7 @@
  */
 package br.gm.brunoriul.estoqueSAEP.api.controller;
 
+import br.gm.brunoriul.estoqueSAEP.domain.dto.CategoriaValorTotalDTO;
 import br.gm.brunoriul.estoqueSAEP.entities.Categoria;
 import br.gm.brunoriul.estoqueSAEP.repositories.CategoriaRepository;
 import br.gm.brunoriul.estoqueSAEP.service.CategoriaService;
@@ -50,6 +51,14 @@ public class CategoriaController {
         else{
             return ResponseEntity.notFound().build();
         }
+    }
+    
+    
+    @GetMapping("/resumo")
+    public List<CategoriaValorTotalDTO> resumoCategoria(){
+        
+        return categoriaService.valorTotalPorCategoriaViaSqlNativo();
+        
     }
     
     @PostMapping("/adicionar")
