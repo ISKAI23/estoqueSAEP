@@ -19,12 +19,12 @@ public interface MovimentoRepository extends JpaRepository<Movimento, Long> {
     
     @Query("""
            SELECT new br.gm.brunoriul.estoqueSAEP.domain.dto.RelatorioDTO
-           (p.id, p.nome, p.valorUnitario,
+           (p.id, p.nome, p.valor_unitario,
            SUM(CASE WHEN m.qtd > 0 THEN m.qtd ELSE 0.0 END),
-           SUM(CASE WHEN m.qtd < 0 THEN -m.qtd ELSE 0.0 END)),
+           SUM(CASE WHEN m.qtd < 0 THEN -m.qtd ELSE 0.0 END))
            FROM Movimento m JOIN m.produto p
-           WHERE (:dataInicio IS NULL OR m.dataMovto >= :dataInicio)
-           AND (:dataFim IS NULL OR m.dataMovto <= :dataFim)
+           WHERE (:dataInicio IS NULL OR m.data_movto >= :dataInicio)
+           AND (:dataFim IS NULL OR m.data_movto <= :dataFim)
            GROUP BY p.id
            ORDER BY p.nome
            """

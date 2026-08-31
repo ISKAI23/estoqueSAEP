@@ -58,7 +58,7 @@ public class ProdutoController {
         }
     }
     
-    @GetMapping("/reltorio/estoque")
+    @GetMapping("/relatorio/estoque")
     public ResponseEntity<List<RelatorioDTO>> relatorio(
             @RequestParam(required = false)
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDate dataInicio,
