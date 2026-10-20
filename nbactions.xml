@@ -15,6 +15,11 @@
                 <exec.appArgs></exec.appArgs>
                 <exec.mainClass>br.gm.brunoriul.estoqueSAEP.EstoqueSaepApplication</exec.mainClass>
                 <exec.executable>java</exec.executable>
+                <Env.APP_ENVIRONMENT>prod2</Env.APP_ENVIRONMENT>
+                <Env.POSTGRES_HOST>172.16.5.17</Env.POSTGRES_HOST>
+                <Env.POSTGRES_DB>estoqueDB</Env.POSTGRES_DB>
+                <Env.POSTGRES_USER>root</Env.POSTGRES_USER>
+                <Env.POSTGRES_PASSWORD>senai</Env.POSTGRES_PASSWORD>
             </properties>
         </action>
         <action>
@@ -50,6 +55,19 @@
                 <exec.mainClass>br.gm.brunoriul.estoqueSAEP.EstoqueSaepApplication</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <exec.appArgs></exec.appArgs>
+            </properties>
+        </action>
+        <action>
+            <actionName>rebuild</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+            </goals>
+            <properties>
+                <skipTests>true</skipTests>
             </properties>
         </action>
     </actions>
